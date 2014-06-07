@@ -1,9 +1,9 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
 var mergeTrees = require('broccoli-merge-trees');
 var pickFiles = require('broccoli-static-compiler');
+
 
 var app = new EmberApp({
   name: require('./package.json').name,
@@ -13,8 +13,12 @@ var app = new EmberApp({
     options: {}
   },
 
-  getEnvJSON: require('./config/environment')
+  getEnvJSON: require('./config/environment'),
 });
+
+
+
+
 
 // Use this to add additional libraries to the generated output files.
 app.import('vendor/ember-data/ember-data.js');
@@ -58,11 +62,11 @@ var leafletExtraAssets = pickFiles('vendor/leaflet-dist/images', {
     files: ['**/*'],
     destDir: '/images'
 });
-//app.import('vendor/leaflet.markerclusterer/dist/MarkerCluster.css');
-//app.import('vendor/leaflet.markerclusterer/dist/MarkerCluster.Default.css');
-//app.import('vendor/leaflet.markerclusterer/dist/leaflet.markercluster.js');
-//app.import('vendor/ember-leaflet/dist/ember-leaflet.js');
 
+
+// Firebase
+app.import('vendor/firebase/firebase-debug.js');
+app.import('vendor/emberfire/dist/emberfire.js');
 
 
 module.exports = mergeTrees([

@@ -12,7 +12,9 @@
     "module": true,
     "L": true,
     "EmberLeaflet": true,
-    "console":true
+    "console":true,
+    "Firebase":true,
+    "EmberFire":true
   },
   "node" : false,
   "browser" : false,

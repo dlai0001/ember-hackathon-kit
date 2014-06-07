@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('zzzdemo/bootstrap');
     this.route('zzzdemo/fontawesome');
     this.route('zzzdemo/emberleaflet');
+    this.route('zzzdemo/firebase');
 });
 
 export default Router;

@@ -1,0 +1,10 @@
+<h2>ZzzdemoFirebase</h2>
+
+{{input type="text" value=name size="50"}}
+<button {{action 'addNew'}}>Add New</button>
+
+<ul class="unstyled">
+    {{#each}}
+        <li>{{ name }}</li>
+    {{/each}}
+</ul>
