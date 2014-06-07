@@ -3,6 +3,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
+
+
+    // demo routes
+    this.route('zzzdemo/bootstrap');
+    this.route('zzzdemo/fontawesome');
+    this.route('zzzdemo/emberleaflet');
 });
 
 export default Router;

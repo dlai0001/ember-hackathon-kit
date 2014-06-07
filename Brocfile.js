@@ -2,6 +2,9 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
+
 var app = new EmberApp({
   name: require('./package.json').name,
 
@@ -31,7 +34,39 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
 });
 
 //Bootstrap
-app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
-app.import('/Users/dlai/projects/ember-hack-kit/vendor/bootstrap/dist/css/bootstrap.min.css');
+app.import('vendor/bootstrap/dist/js/bootstrap.js');
+app.import('vendor/bootstrap/dist/css/bootstrap.css');
+var bootstrapExtraAssets = pickFiles('vendor/bootstrap/dist/fonts',{
+    srcDir: '/',
+    files: ['**/*'],
+    destDir: '/fonts'
+});
 
-module.exports = app.toTree();
+//FontAwesome
+app.import('vendor/fontawesome/css/font-awesome.css');
+var bootstrapExtraAssets = pickFiles('vendor/fontawesome/fonts',{
+    srcDir: '/',
+    files: ['**/*'],
+    destDir: '/fonts'
+});
+
+//Ember Leaflet
+app.import('vendor/leaflet-dist/leaflet-src.js');
+app.import('vendor/leaflet-dist/leaflet.css');
+var leafletExtraAssets = pickFiles('vendor/leaflet-dist/images', {
+   srcDir: '/',
+    files: ['**/*'],
+    destDir: '/images'
+});
+//app.import('vendor/leaflet.markerclusterer/dist/MarkerCluster.css');
+//app.import('vendor/leaflet.markerclusterer/dist/MarkerCluster.Default.css');
+//app.import('vendor/leaflet.markerclusterer/dist/leaflet.markercluster.js');
+//app.import('vendor/ember-leaflet/dist/ember-leaflet.js');
+
+
+
+module.exports = mergeTrees([
+    app.toTree(),
+    bootstrapExtraAssets,
+    leafletExtraAssets
+]);
