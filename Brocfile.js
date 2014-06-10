@@ -68,9 +68,29 @@ var leafletExtraAssets = pickFiles('vendor/leaflet-dist/images', {
 app.import('vendor/firebase/firebase-debug.js');
 app.import('vendor/emberfire/dist/emberfire.js');
 
+//t17 ember upload
+//app.import('vendor/t17-ember-upload/dist/t17-ember-upload.js', {
+//    't17-ember-upload': [
+//        'default',
+//        'UploadInputView',
+//        'DropzoneView',
+//        'FileObject',
+//        'UploadMixin',
+//    ]
+//});
+//app.import('vendor/t17-ember-upload/dist/t17-ember-upload.min.css');
+//var t17uploadExtraAssets = pickFiles('vendor/t17-ember-upload/dist', {
+//    srcDir: '/',
+//    files: ['t17-upload.png'],
+//    destDir: '/assets'
+//});
+
 
 module.exports = mergeTrees([
     app.toTree(),
     bootstrapExtraAssets,
     leafletExtraAssets
+
+
+    //t17uploadExtraAssets
 ]);

@@ -26,9 +26,13 @@
     "loom-generators-ember-appkit": "^1.1.1",
     "express": "^4.1.1",
     "body-parser": "^1.2.0",
-    "glob": "^3.2.9"
+    "glob": "^3.2.9",
+    "ember-droplet": "^0.5.2",
+    "promise": "^5.0.0",
+    "promised-io": "^0.3.4",
+    "method-override": "^2.0.2"
   },
   "dependencies": {
-
+    "ember-droplet": "^0.5.2"
   }
 }
